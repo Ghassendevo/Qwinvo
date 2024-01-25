@@ -18,17 +18,20 @@ const ActivityItem: React.FC<activityIT> = ({ acitivity }) => {
   const dispatch = useDispatch();
   const UserForm = useSelector((state: RootState) => state.register);
   const addReduxRegister = (value: string) => {
-    dispatch(incrementStep(), addAttribue({ ...UserForm, acitivity: value }),nextStep());
+    dispatch(addAttribue({ ...UserForm, activity: value }));
+    dispatch(incrementStep());
+    nextStep();
   };
   const handleDispatch = () => {
     dispatch(decrementStep());
-    previousStep()
+    previousStep();
   };
   return (
     <>
       {(acitivity &&
         acitivity.map((value, key) => (
           <Activity
+            key={key}
             name={value.name}
             action={() => addReduxRegister(value.name)}
           />

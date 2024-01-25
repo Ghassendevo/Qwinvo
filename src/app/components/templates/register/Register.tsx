@@ -12,7 +12,7 @@ import { Wizard, useWizard } from "react-use-wizard";
 import { Button } from "@/components/ui/button";
 import ActivityItem from "../../organisms/ActivityItem";
 import VerifyEmail from "../../organisms/VerifyEmail";
-import gif from "../../../../assets/email-ezgif.com-loop-count.gif"
+import gif from "../../../../assets/email-ezgif.com-loop-count.gif";
 import VerifyCode from "../../organisms/VerifyCode";
 const COUNTRIES = [
   {
@@ -92,7 +92,7 @@ const Register = () => {
             <m.div
               initial={{ opacity: 0.5 }}
               animate={{ opacity: 1 }}
-              className="md:w-[70%] p-5 md:p-0"
+              className="md:w-[70%] w-full p-5 md:p-0"
             >
               <div className="flex gap-2 flex-col">
                 <h1
@@ -114,13 +114,13 @@ const Register = () => {
             <m.div
               initial={{ opacity: 0.5 }}
               animate={{ opacity: 1 }}
-              className="md:w-[70%] p-5 md:p-0"
+              className="md:w-[70%] flex flex-col justify-center p-5 md:p-0"
             >
               <div className="flex gap-2 flex-col">
                 <h1
                   className={`md:text-[27px] text-md   font-semibold fontbase `}
                 >
-                  Excellent ! you are doing great please enter the code
+                  Excellent ! You are doing great. Please enter the code.
                 </h1>
                 <p
                   className={`text-sm md:text-sm text-gray-700 fontbase leading-6 `}

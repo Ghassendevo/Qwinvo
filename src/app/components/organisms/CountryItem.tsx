@@ -15,7 +15,9 @@ const CountryItem: React.FC<countryIT> = ({ countries }) => {
   return (
     (countries &&
       countries.map((value, key) => (
-       <CountryMolecule name={value.name} label={value.label} />
+      <div key={key}>
+         <CountryMolecule name={value.name} label={value.label} />
+      </div>
       ))) ||
     "No country to select"
   );

@@ -9,7 +9,7 @@ import { incrementStep } from "@/app/redux/slices/stepsSlice";
 import { addAttribue } from "@/app/redux/slices/registerSlice";
 import { RootState } from "@/app/redux/store";
 type countryIT = {
-  name?: string;
+  name: string;
   label?: string;
 };
 
@@ -18,8 +18,9 @@ const CountryMolecule: React.FC<countryIT> = ({ name, label }) => {
   const dispatch = useDispatch();
   const form = useSelector((state: RootState) => state.register);
   const handleCountry = () => {
-    dispatch(incrementStep(), addAttribue({ ...form, country: name }));
-    nextStep();
+      dispatch(addAttribue({...form,country:name}));
+      dispatch(incrementStep());
+      nextStep();
   };
   return (
     <m.div

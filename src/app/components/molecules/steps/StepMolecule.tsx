@@ -14,6 +14,7 @@ const StepMolecule = ({ steps }: { steps: Array<StepType> }) => {
       {steps.map((value, key) => {
         return (
           <div
+            key={key}
             className={`flex justify-center after:transition after:ease-[ease] after:duration-500 ${
               isactive == key + 1 &&
               "border-r-green-600 border-r-[2px] shadow-sm after:transition after:ease-[ease] after:duration-500 "

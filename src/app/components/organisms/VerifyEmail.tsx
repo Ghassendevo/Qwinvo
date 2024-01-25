@@ -2,12 +2,13 @@ import React, { useState } from "react";
 import BackButton from "../atoms/BackButton";
 import { useWizard } from "react-use-wizard";
 import { useDispatch, useSelector } from "react-redux";
-import { decrementStep } from "@/app/redux/slices/stepsSlice";
+import { decrementStep, incrementStep } from "@/app/redux/slices/stepsSlice";
 import EmailMolecule from "../molecules/Register/EmailMolecule";
 import ButtonSubmit from "../atoms/ButtonSubmit";
 import { RootState } from "@/app/redux/store";
 import { validateEmail } from "@/regex/regexGlobal";
 import { useToast } from "@/components/ui/use-toast";
+import { addAttribue } from "@/app/redux/slices/registerSlice";
 
 const VerifyEmail = () => {
   const { handleStep, previousStep, nextStep } = useWizard();
@@ -29,7 +30,8 @@ const VerifyEmail = () => {
         title: "We sended you a verification code ",
         description: "Please enter the code",
       });
-
+      dispatch(incrementStep());
+      dispatch(addAttribue({ ...data, email: email }));
       nextStep();
     } else {
       setErrEmail("Invalid email form");
