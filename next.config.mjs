@@ -2,13 +2,6 @@
 const nextConfig = {
     output: 'export',
     reactStrictMode: false,
-    images: {
-        unoptimized: true
-    },
-    experimental: {
-        missingSuspenseWithCSRBailout: false,
-    },
-
 };
 
 export default nextConfig;
