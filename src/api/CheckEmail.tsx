@@ -4,15 +4,20 @@ import { Dispatch, SetStateAction } from "react";
 interface ICheckemail {
   email: string;
   setLoading?: Dispatch<SetStateAction<boolean>>;
-  setResult: Dispatch<SetStateAction<string>>;
+  setResult?: Dispatch<SetStateAction<string>>;
 }
-export const checkEmail  = ({email,setLoading,setResult}:ICheckemail) => {
-  axios
-    .get(`http://127.0.0.1:5000/CheckEmail?email=${email}`)
-    .then((response) => {
-      setLoading && setLoading(true);
-    })
-    .catch((error) => {
-      setResult(`Error: ${error.message}`);
-    });
+export const checkEmail = async ({
+  email,
+  setLoading,
+  setResult,
+}: ICheckemail) => {
+  try {
+    const response = await axios.get(
+      `http://127.0.0.1:5000/checkEmail?email=${email}`
+    );
+    console.log(response.data)
+    return { success: response.data };
+  } catch (error: any) {
+    return { error: error.message };
+  }
 };
